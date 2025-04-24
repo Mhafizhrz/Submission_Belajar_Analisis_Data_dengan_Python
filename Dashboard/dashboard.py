@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Memuat data dari file CSV
-file_path = "dashboard/data.csv"
+file_path = "Dashboard/data.csv"
 bike_df = pd.read_csv(file_path)
 
 # Judul Dashboard
