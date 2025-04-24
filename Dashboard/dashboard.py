@@ -12,10 +12,10 @@ st.title("Analisis Penggunaan Bike Sharing")
 
 # Sidebar untuk navigasi dan eksplorasi data
 with st.sidebar:
-    st.subheader('🚴‍♂️ Statistik Bike Sharing')
+    st.subheader('🚴 Statistik Bike Sharing 🚴')
     st.image("https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     
-    st.header("🔍 Cek Data")
+    st.header("📃 Cek Data")
     with st.expander("📊 Tampilkan Data"):
         show_overview = st.checkbox("Tampilkan Overview Data", value=True)
         show_head = st.checkbox("Tampilkan 5 Baris Pertama", value=True)
@@ -27,7 +27,7 @@ if show_overview:
     st.subheader("Deskripsi Dataset")
     st.write("""Dataset ini mencakup data penggunaan bike sharing, dengan informasi terkait cuaca, 
     hari dalam minggu, serta jam-jam tertentu yang mempengaruhi frekuensi peminjaman sepeda.""")
-    
+
 if show_head:
     st.subheader("5 Baris Pertama Data")
     st.write(bike_df.head())
@@ -53,7 +53,7 @@ if show_graphs:
     weather_impact_sorted = weather_impact.sort_values("cnt_day", ascending=False)
 
     fig2, ax2 = plt.subplots(figsize=(10, 6))
-    sns.barplot(data=weather_impact_sorted, x='cnt_day', y='weather_label', palette='coolwarm', ax=ax2)
+    sns.barplot(data=weather_impact_sorted, x='cnt_day', y='weather_label', hue='weather_label', palette='coolwarm', ax=ax2, legend=False)
     ax2.set_title("Pengaruh Kondisi Cuaca terhadap Penyewaan Bike Sharing")
     ax2.set_xlabel("Rata-rata Penyewaan")
     ax2.set_ylabel("Jenis Cuaca")
